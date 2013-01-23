@@ -1,0 +1,20 @@
+module ExApp{
+        typedef sequence<string> vector;
+        typedef sequence<vector> matriz;
+	interface Ex{
+                vector Login(in string user, in string pwd);		                
+                vector ObtenerUsuarioPorID(in long id, in octet estado);
+                matriz ObtenerUsuarioPorTarea(in long id);                
+                boolean ModificarUsuarioPwd(in long id, in string oldPwd, in string newPwd);                
+                                                
+                matriz ObtenerMisProyectos(in long id, in boolean admin);                                
+                
+                matriz ObtenerMisTareas(in long id, in boolean admin);                
+
+                boolean Crear(in vector datos, in octet tabla);
+                matriz Obtener(in string busqueda, in octet estado, in octet tabla);
+                boolean Modificar(in long id, in vector datos, in octet tabla);
+                boolean Restaurar(in long id, in octet tabla);
+                boolean Eliminar(in long id, in boolean permanente, in octet tabla);
+	};
+};
